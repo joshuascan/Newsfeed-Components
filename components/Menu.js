@@ -33,10 +33,13 @@ let menuItems = [
 */
 
 const menuButton = document.querySelector('img.menu-button');
+const header = document.querySelector('div.header');
 
 function menuMaker(menuArray) {
     const menu = document.createElement('div');
     const list = document.createElement('ul');
+
+    menu.classList.add('menu');
 
     menu.appendChild(list);
 
@@ -46,7 +49,13 @@ function menuMaker(menuArray) {
         list.appendChild(menuItem);
     });
 
+    menuButton.addEventListener('click', (event) => {
+        menu.classList.toggle('menu--open');
+    });
+
+    header.appendChild(menu);
+
     return menu;
 }
 
-console.log(menuMaker(menuItems));
+menuMaker(menuItems);
