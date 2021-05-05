@@ -49,7 +49,7 @@ function menuMaker(menuArray) {
         list.appendChild(menuItem);
     });
 
-    menuButton.addEventListener('click', (event) => {
+    menuButton.addEventListener('click', () => {
         menu.classList.toggle('menu--open');
     });
 

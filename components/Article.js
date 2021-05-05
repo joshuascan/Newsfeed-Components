@@ -89,7 +89,7 @@ const data = [
   },
   {
     title: 'Some Other Important Sounding Thing',
-    date: 'July 7th, 2020',
+    date: 'July 14th, 2020',
     firstParagraph: `He's going to be all right. The worst that could happen is that I could spill coffee all over this $3,000 suit. COME ON. He's a regular Freddie Wilson, that one. No, she's in it. She's a contestant. It's sorta like an inner beauty pageant. Ah, there it is. The CIA should've just Googled for his hideout, evidently. This objectification of women has to stop. It's just Mom and whores. She calls it a Mayonegg.`,
     secondParagraph: `Smack of ham. What is she doing at a beauty pageant? Is she running the lights or something? Or it could be your colon. I'd want to get in there and find some answers. They don't appreciate him. It's his glasses… they make him look like a lizard. Plus he's self-conscious. Of course. The "Bob Loblaw Law Blog." Wow. You, sir, are a mouthful! Can't a guy call his mother pretty without it seeming strange? Amen. And how about that little piece of tail on her? Cute!`,
     thirdParagraph: `Fun and failure both start out the same way. Look at us, crying like a bunch of girls on the last day of camp. I will pack your sweet pink mouth with so much ice cream you'll be the envy of every Jerry and Jane on the block! For there's a man inside me, and only when he's finally out, can I walk free of pain. I [bleeped] the business model. Oh, yeah, the $4,000 suit is holding the elevator for a guy who doesn't make that in 3 months. Come on! They want to break his legs. It's a good thing he's already got that little scooter. Coo coo ca chaw. Coo coo ca chaw.`
@@ -131,6 +131,7 @@ function articleMaker(articleObj) {
     const firstPar = document.createElement('p');
     const secondPar = document.createElement('p');
     const thirdPar = document.createElement('p');
+    const readButton = document.createElement('button');
     const expandButton = document.createElement('span');
 
     article.appendChild(articleTitle);
@@ -138,10 +139,12 @@ function articleMaker(articleObj) {
     article.appendChild(firstPar);
     article.appendChild(secondPar);
     article.appendChild(thirdPar);
+    article.appendChild(readButton);
     article.appendChild(expandButton);
 
     article.classList.add('article');
     articleDate.classList.add('date');
+    readButton.classList.add('readButton');
     expandButton.classList.add('expandButton');
 
     articleTitle.textContent = articleObj.title;
@@ -149,10 +152,15 @@ function articleMaker(articleObj) {
     firstPar.textContent = articleObj.firstParagraph;
     secondPar.textContent = articleObj.secondParagraph;
     thirdPar.textContent = articleObj.thirdParagraph;
+    readButton.textContent = 'READ ✔'
     expandButton.textContent = '+';
 
-    expandButton.addEventListener('click', (event) => {
+    expandButton.addEventListener('click', () => {
         article.classList.toggle('article-open');
+    })
+
+    readButton.addEventListener('click', () => {
+        article.classList.add('clear');
     })
 
     return article;
