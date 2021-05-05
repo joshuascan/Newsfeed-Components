@@ -40,5 +40,13 @@ function menuMaker(menuArray) {
 
     menu.appendChild(list);
 
-    
+    menuArray.forEach((item) => {
+        const menuItem = document.createElement('li');
+        menuItem.textContent = item;
+        list.appendChild(menuItem);
+    });
+
+    return menu;
 }
+
+console.log(menuMaker(menuItems));
