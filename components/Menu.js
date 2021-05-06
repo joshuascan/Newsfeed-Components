@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+
 // This is the data we will be using, study it but don't change anything, yet.
 
 let menuItems = [
@@ -51,6 +53,7 @@ function menuMaker(menuArray) {
 
     menuButton.addEventListener('click', () => {
         menu.classList.toggle('menu--open');
+        let animation = gsap.to(menu, { duration: 0.5, x:350, scale: 1, ease: 'linear' });
     });
 
     header.appendChild(menu);
